@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原之情服务器防沉迷系统</title>
+    <!-- 新 Bootstrap5 核心 CSS 文件 -->
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+
+<!--  popper.min.js 用于弹窗、提示、下拉菜单 -->
+<script src="https://cdn.staticfile.org/popper.js/2.9.3/umd/popper.min.js"></script>
+
+<!-- 最新的 Bootstrap5 核心 JavaScript 文件 -->
+<script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-light justify-content-center">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="/">主页</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/chack/">数据库查询（隐私保护）</a>
+    </li>
+  </ul>
+</nav><br>
+<div class="col-md-4 offset-md-4">
+<div class="card">
+  <div class="card-header">白名单数据库</div>
+  <div class="card-body">
+      <form action="/chack/" method="post">
+          <div class="input-group mb-3">
+    <span class="input-group-text">id</span>
+    <input type="text" class="form-control" name="user">
+  </div>
+          <input type="hidden" name="act" value="bmd">
+          <button type="submit" class="btn btn-primary">提交</button>
+      </form>
+  </div>
+  </div><br>
+    <div class="card">
+  <div class="card-header">记录时间的数据库</div>
+  <div class="card-body">
+      <form action="/chack/" method="post">
+          <div class="input-group mb-3">
+    <span class="input-group-text">id</span>
+    <input type="text" class="form-control" name="user">
+  </div>
+          <input type="hidden" name="act" value="times">
+          <button type="submit" class="btn btn-primary">提交</button>
+      </form>
+  </div>
+  </div><br>
+    {% for i in info %}
+        <div class="alert alert-success">
+        查询结果：<br>
+  {{ i }}
+</div><br>
+    {% endfor %}
+    <h5>Copyright &copy; 2022 ckapp All Rights Reserved</h5>
+</div>
+</body>
+</html>

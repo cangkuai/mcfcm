@@ -1,0 +1,10 @@
+name: Fcm
+version: '${project.version}'
+main: cn.ckapp.fcm.Fcm
+api-version: 1.18
+commands:
+  chacks: # 命令的基本名，请不要使用奇怪的字符！
+    usage: "/superkill <player-name>" # 用法
+    description: "Kill some player." # 描述
+    permission: "minecraft.command.kill" # 需要的权限，通常不用
+    permission-message: "Only killer can do that!" # 无权限返回的消息，通常不用

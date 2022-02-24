@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原之情服务器防沉迷系统</title>
+    <!-- 新 Bootstrap5 核心 CSS 文件 -->
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+
+<!--  popper.min.js 用于弹窗、提示、下拉菜单 -->
+<script src="https://cdn.staticfile.org/popper.js/2.9.3/umd/popper.min.js"></script>
+
+<!-- 最新的 Bootstrap5 核心 JavaScript 文件 -->
+<script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-light justify-content-center">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="/">主页</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/chack/">数据库查询（隐私保护）</a>
+    </li>
+  </ul>
+</nav><br>
+<div class="col-md-4 offset-md-4">
+    <form action="/" method="post">
+        <div class="input-group mb-3">
+    <span class="input-group-text">名字</span>
+    <input type="text" name="name" required="required" class="form-control"></div>
+        <div class="input-group mb-3">
+    <span class="input-group-text">游戏id</span>
+    <input type="text" required="required" class="form-control" name="ids">
+  </div>
+        <div class="input-group mb-3">
+    <span class="input-group-text">身份证</span>
+    <input type="text" maxlength="18" minlength="18"  required="required" class="form-control" name="sfz">
+  </div>
+    <div class="input-group mb-3">
+    <span class="input-group-text">验证码</span>
+    <input type="text" required="required" style="width:180px;display:inline-block;" class="form-control" name="yzm">
+  </div>
+        <input type="hidden" name="seed" value="{{ seed }}">
+        <input type="hidden" name="act" value="smz">
+        <img style="width:180px;" src="data:image/png;base64,{{ img_stream }}">
+        <br><center><button type="submit" class="btn btn-primary">提交</button></center>
+    </form>
+{% for i in info %}
+      <div class="alert alert-info">
+    {{ i }}
+  </div>
+    {% endfor %}
+<br>
+<div class="card">
+  <div class="card-header">声明</div>
+  <div class="card-body">本服承诺所有数据不缓存，数据验证服务商为公安部直接授权的服务商。</div>
+</div>
+<h5>Copyright &copy; 2022 ckapp All Rights Reserved</h5>
+</div>
+</body>
+</html>
